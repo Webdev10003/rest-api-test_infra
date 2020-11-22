@@ -6,11 +6,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: rest-api-test-app
+      app: rest-api-test
   template:
     metadata:
       labels:
-        app: rest-api-test-app-MT
+        app: rest-api-test
 spec:
   containers:
   - name: private-reg-container

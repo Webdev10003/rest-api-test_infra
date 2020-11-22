@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: rest-api-test
+  labels:
+    app: rest-api-test
 spec:
   replicas: 1
   selector:
@@ -11,9 +13,9 @@ spec:
     metadata:
       labels:
         app: rest-api-test
-spec:
-  containers:
-  - name: private-reg-container
-    image: mehdi10003/rest-api-test:latest
-  imagePullSecrets:
-  - name: regcred
+    spec:
+      containers:
+      - name: rest-api-test
+        image: mehdi10003/rest-api-test:latest
+      imagePullSecrets:
+      - name: regcred

@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rest-api-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rest-api-test-app
+  template:
+    metadata:
+      labels:
+        app: rest-api-test-app-MT
+spec:
+  containers:
+  - name: private-reg-container
+    image: mehdi10003/rest-api-test:latest
+  imagePullSecrets:
+  - name: regcred
